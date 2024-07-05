@@ -138,6 +138,10 @@ h1{
     gap: 1rem;
 }
 
+.task_form img{
+    color: var(--pink);
+}
+
 .radio_wrap{
     display: flex;
     align-items: center;
@@ -180,25 +184,35 @@ h1{
     background-color: var(--yellow);
 }
 
-.task_form > #task_name{
+#task_name{
     border: none;
     color: var(--gray);
 }
 
-.task_form > #task_name::placeholder {
+#task_name::placeholder {
     opacity: 0.3;
 }
 
-.task_form > #task_name:focus {
+#task_name:focus {
     outline: none;
 }
 
 .date_wrap {
-    position: relative;
     color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.date_wrap > #date {
-    /*display: none;*/
+#date_val{
+    width: 135px;
+}
+
+#date_icon{
+    width: 36px;
+}
+
+#date {
     opacity: 0;
+    width: 0;
 }

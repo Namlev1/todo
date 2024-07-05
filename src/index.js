@@ -1,5 +1,6 @@
 import './styles.css'
 import createSidePanelDom from "./SidePanelDom";
+import Icon from "./assets/img/calendar.svg"
 
 function renderSidePanel() {
     createSidePanelDom()
@@ -7,11 +8,12 @@ function renderSidePanel() {
 
 renderSidePanel();
 
-const dateBtn = document.querySelector("#date_btn");
+const dateIcon = document.querySelector("#date_icon");
 const dateInput = document.querySelector("#date");
 const dateSpan = document.querySelector("#date_val");
 
-dateBtn.addEventListener("click", (e) =>{
+dateIcon.src = Icon;
+dateIcon.addEventListener("click", (e) =>{
     e.preventDefault();
     dateInput.showPicker();
 })
