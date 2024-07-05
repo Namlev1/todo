@@ -20,7 +20,11 @@
         <input type="text" id="task_name" name="task_name" placeholder="What is your next task?" spellcheck="false"
                autocomplete="off" class="flex-grow">
         <input type="time" name="time" id="time">
-        <input type="date" name="date" id="date">
+        <div class="date_wrap">
+            <span id="date_val"></span>
+            <button id="date_btn"></button>
+            <input type="date" name="date" id="date">
+        </div>
     </form>
 </div>
 </body>
