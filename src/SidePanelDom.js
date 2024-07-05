@@ -1,9 +1,8 @@
 import CalendarClockIcon from "./assets/img/calendar_clock.svg";
 import EventIcon from "./assets/img/event.svg";
-import {createDiv, createP, createSpan} from "./DOM_utils";
+import {createDiv, createP, createSpan} from "./DomUtils";
 
 const sideMenu = document.querySelector('#side_menu')
-const main = document.querySelector('#main')
 
 function createCategoryListElement(text) {
     const li = document.createElement('li');
@@ -12,7 +11,7 @@ function createCategoryListElement(text) {
     return li;
 }
 
-export function addScheduledTasksPanel() {
+function addScheduledTasksPanel() {
     const scheduledTasksCard = createDiv('side_menu_card')
     const imgWrap = createDiv('img_wrap')
     const img = document.createElement('img')
@@ -26,7 +25,7 @@ export function addScheduledTasksPanel() {
     sideMenu.appendChild(scheduledTasksCard)
 }
 
-export function addTodaysTasksPanel() {
+function addTodaysTasksPanel() {
     const todayTasksCard = createDiv('side_menu_card')
     const imgWrap = createDiv('img_wrap')
     const img = document.createElement('img')
@@ -46,4 +45,9 @@ export function addTodaysTasksPanel() {
     todayTasksCard.appendChild(p)
     todayTasksCard.appendChild(ul)
     sideMenu.appendChild(todayTasksCard);
+}
+
+export default function createSidePanelDom(){
+    addTodaysTasksPanel();
+    addScheduledTasksPanel();
 }

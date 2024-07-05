@@ -3,6 +3,11 @@
     src: url("./assets/fonts/Poppins-Medium.ttf");
 }
 
+@font-face {
+    font-family: "Poppins Bold";
+    src: url("./assets/fonts/Poppins-Bold.ttf");
+}
+
 :root {
     --white: #ffffff;
     --blue: #a18aff;
@@ -11,6 +16,9 @@
     --pink: #fd99af;
     --gray: #717082;
     --yellow: #fac608;
+    --light-cyan: #99e6f9;
+    --light-pink: #febccd;
+    --light-yellow: #fddd65;
     font-size: 26px;
 }
 
@@ -25,6 +33,11 @@ body {
 p {
     margin: 0;
     display: inline;
+}
+
+h1{
+    font-family: "Poppins Bold", sans-serif;
+    letter-spacing: 0.05rem;
 }
 
 #side_menu {
@@ -98,4 +111,54 @@ p {
 #main {
     background-color: var(--blue);
     display: flex;
+    flex-direction: column;
+    padding: 2.4rem 6rem;
+    color: var(--white);
+}
+
+.task_form{
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 24px;
+}
+
+.radio_wrap{
+    display: flex;
+    gap: 10px;
+}
+
+.radio_wrap > * {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 2px transparent; /* Default shadow is transparent */
+    transition: 0.3s;
+}
+
+.ping_btn{
+    background-color: var(--light-pink);
+}
+
+.ping_btn:checked{
+    background-color: var(--pink);
+}
+
+.cyan_btn{
+    background-color: var(--light-cyan);
+}
+
+.cyan_btn:checked{
+    background-color: var(--cyan);
+}
+
+.yellow_btn{
+    background-color: var(--light-yellow);
+}
+
+.yellow_btn:checked{
+    background-color: var(--yellow);
 }

@@ -10,6 +10,17 @@
 <body>
 <div id="side_menu">
 </div>
-<div id="main"></div>
+<div id="main">
+    <h1>Today tasks</h1>
+    <form class="task_form" action="#">
+        <div class="radio_wrap"><input type="radio" id="home" name="task_type" value="home" class="ping_btn">
+            <input type="radio" id="work" name="task_type" value="work" class="cyan_btn">
+            <input type="radio" id="personal" name="task_type" value="personal" class="yellow_btn">
+        </div>
+        <input type="text" id="task_name" name="task_name">
+        <input type="time" name="time" id="time">
+        <input type="date" name="date" id="date">
+    </form>
+</div>
 </body>
 </html>

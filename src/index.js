@@ -1,9 +1,8 @@
 import './styles.css'
-import {addScheduledTasksPanel, addTodaysTasksPanel} from "./SidePanelDom";
+import createSidePanelDom from "./SidePanelDom";
 
 function renderSidePanel() {
-    addTodaysTasksPanel();
-    addScheduledTasksPanel();
+    createSidePanelDom()
 }
 
 renderSidePanel();
