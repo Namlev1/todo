@@ -28,6 +28,15 @@ body {
     display: grid;
     grid-template-columns: 25% 75%;
     min-height: 100vh;
+    color: var(--gray);
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
 }
 
 p {
@@ -38,6 +47,10 @@ p {
 h1{
     font-family: "Poppins Bold", sans-serif;
     letter-spacing: 0.05rem;
+}
+
+.flex-grow{
+    flex-grow: 1;
 }
 
 #side_menu {
@@ -120,11 +133,15 @@ h1{
     background-color: var(--white);
     padding: 1rem;
     border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .radio_wrap{
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 0.2rem;
 }
 
 .radio_wrap > * {
@@ -161,4 +178,17 @@ h1{
 
 .yellow_btn:checked{
     background-color: var(--yellow);
+}
+
+.task_form > input[type="text"]{
+    border: none;
+    color: var(--gray);
+}
+
+.task_form > input[type="text"]::placeholder {
+    opacity: 0.5;
+}
+
+.task_form > input[type="text"]:focus {
+    outline: none;
 }
