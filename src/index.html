@@ -19,7 +19,11 @@
         </div>
         <input type="text" id="task_name" name="task_name" placeholder="What is your next task?" spellcheck="false"
                autocomplete="off" class="flex-grow">
-        <input type="time" name="time" id="time">
+        <div class="time_wrap">
+            <span id="time_val"></span>
+            <img alt="Select date" id="time_icon">
+            <input type="time" name="time" id="time">
+        </div>
         <div class="date_wrap">
             <span id="date_val"></span>
             <img alt="Select date" id="date_icon">
