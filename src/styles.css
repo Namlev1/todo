@@ -117,6 +117,26 @@ h1{
     color: var(--yellow);
 }
 
+@media (max-width: 1300px) {
+    .side_menu_card {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        row-gap: 10px;
+    }
+
+    .side_menu_card ul {
+        grid-column: 1 / -1;
+    }
+
+    .side_menu_card p{
+        text-align: center;
+    }
+
+    .img_wrap > img {
+        width: 60px;
+    }
+}
+
 .clickable_text {
     cursor: pointer;
 }
@@ -138,6 +158,11 @@ h1{
     gap: 1rem;
 }
 
+.task_form > * {
+    flex-shrink: 1;
+    min-width: 0;
+}
+
 .task_form img{
     color: var(--pink);
 }
@@ -151,7 +176,7 @@ h1{
 .radio_wrap > * {
     appearance: none;
     width: 20px;
-    height: 20px;
+    aspect-ratio: 1/1;
     border-radius: 50%;
     border: 2px solid transparent;
     outline: none;
