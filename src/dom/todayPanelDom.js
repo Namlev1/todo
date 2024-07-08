@@ -1,8 +1,17 @@
-import {createDiv, createForm, createH1, createRadioBtn, createTextInput, createTimeInput} from "./DomUtils";
+import {
+    createDateInput,
+    createDiv,
+    createForm,
+    createH1,
+    createRadioBtn,
+    createTextInput,
+    createTimeInput
+} from "./domUtils";
 import CalendarIcon from "../assets/img/calendar.svg"
 import Clock from "../assets/img/clock.svg"
 import {format, parse} from "date-fns";
 import {enUS} from "date-fns/locale";
+import newTaskFormEventListener from "../form/newTaskFormEventListener";
 
 export default function renderTodayMainPanelDom() {
     const {header, form, radioWrap, taskInput, timeDiv, dateDiv} = createElements();
@@ -13,6 +22,7 @@ export default function renderTodayMainPanelDom() {
         const header = createH1('Today tasks')
         const form = createForm('task_form')
         form.action = '#'
+        form.addEventListener('submit', (event) => newTaskFormEventListener(event))
         const radioWrap = createRadioWrap();
         const taskInput = createTaskInput();
 
@@ -35,9 +45,7 @@ export default function renderTodayMainPanelDom() {
 function createRadioWrap() {
     const radioWrap = createDiv('radio_wrap')
     const radioBtns = createTypeBtns();
-    console.log(radioBtns)
     for (const radioBtn of radioBtns) {
-        console.log(radioBtn)
         radioWrap.appendChild(radioBtn)
     }
     return radioWrap;
@@ -45,6 +53,7 @@ function createRadioWrap() {
 
 function createTypeBtns() {
     const homeBtn = createRadioBtn('pink_btn', 'home', 'task_type', 'home');
+    homeBtn.required = true;
     const workBtn = createRadioBtn('cyan_btn', 'work', 'task_type', 'work');
     const personalBtn = createRadioBtn('yellow_btn', 'personal', 'task_type', 'personal');
     return [homeBtn, workBtn, personalBtn]
@@ -96,7 +105,7 @@ function createDateDiv(today) {
         e.preventDefault();
         dateInput.showPicker();
     })
-    const dateInput = createTimeInput('date', 'date')
+    const dateInput = createDateInput('date', 'date')
     dateInput.addEventListener('change', function () {
         let selectedDate = this.value;
         console.log('Selected Date:', selectedDate);

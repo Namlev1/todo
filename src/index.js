@@ -1,6 +1,6 @@
 import './styles.css'
-import renderSidePanelDom from "./dom/SidePanelDom";
-import renderTodayMainPanelDom from "./dom/MainDom";
+import renderSidePanelDom from "./dom/sidePanelDom";
+import renderTodayMainPanelDom from "./dom/todayPanelDom";
 
 renderSidePanelDom()
 renderTodayMainPanelDom();

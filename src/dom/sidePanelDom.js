@@ -1,6 +1,6 @@
 import CalendarClockIcon from "../assets/img/calendar_clock.svg";
 import EventIcon from "../assets/img/event.svg";
-import {createDiv, createP, createSpan} from "./DomUtils";
+import {createDiv, createP, createSpan} from "./domUtils";
 
 const sideMenu = document.querySelector('#side_menu')
 
