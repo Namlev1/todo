@@ -185,11 +185,11 @@ h1{
     transition: 0.3s;
 }
 
-.ping_btn{
+.pink_btn{
     background-color: var(--light-pink);
 }
 
-.ping_btn:checked{
+.pink_btn:checked{
     background-color: var(--pink);
 }
 
