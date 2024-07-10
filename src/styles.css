@@ -149,7 +149,8 @@ h1{
     color: var(--white);
 }
 
-.task_form{
+.task_form,
+.task {
     background-color: var(--white);
     padding: 1rem;
     border-radius: 24px;
@@ -158,13 +159,11 @@ h1{
     gap: 1rem;
 }
 
-.task_form > * {
+
+.task_form > * ,
+.task > * {
     flex-shrink: 1;
     min-width: 0;
-}
-
-.task_form img{
-    color: var(--pink);
 }
 
 .radio_wrap{
@@ -243,4 +242,20 @@ h1{
 #time {
     opacity: 0;
     width: 0;
+}
+
+.task{
+    margin: 1rem;
+}
+
+.task_name,
+.task_time {
+    color: var(--gray);
+}
+
+.task_time_btn_container{
+    display: grid;
+    flex-basis: 200px;
+    grid-template-columns: 170px 30px;
+    justify-content: start;
 }

@@ -1,3 +1,5 @@
+// todo: change classname implementation to use forEach, add (optional) index to arguments
+
 export function createP(className, text) {
     const p = document.createElement('p');
     p.classList.add(className)

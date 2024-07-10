@@ -1,7 +1,8 @@
 import {Task} from "../logic/task";
 import {save} from "../logic/storage";
+import {displayTask} from "../dom/taskDom";
 
-export default function newTaskFormEventListener(event){
+export function newTaskEventListener(event){
     event.preventDefault();
     const formData = new FormData(event.target);
 
@@ -12,4 +13,5 @@ export default function newTaskFormEventListener(event){
 
     const task = new Task(type, name, time, date);
     save(task);
+    displayTask(task)
 }

@@ -11,34 +11,40 @@ import CalendarIcon from "../assets/img/calendar.svg"
 import Clock from "../assets/img/clock.svg"
 import {format, parse} from "date-fns";
 import {enUS} from "date-fns/locale";
-import newTaskFormEventListener from "../form/newTaskFormEventListener";
+import {newTaskEventListener} from "../form/taskFormEventListeners";
 
 export default function renderTodayMainPanelDom() {
-    const {header, form, radioWrap, taskInput, timeDiv, dateDiv} = createElements();
     const main = document.querySelector('#main')
+
+    const header = createH1('Today tasks')
+    const form = createTaskForm();
+    const tasks = createDiv('tasks')
+
     appendElements();
 
-    function createElements() {
-        const header = createH1('Today tasks')
+    function createTaskForm() {
         const form = createForm('task_form')
         form.action = '#'
-        form.addEventListener('submit', (event) => newTaskFormEventListener(event))
+        form.addEventListener('submit', (event) => newTaskEventListener(event));
         const radioWrap = createRadioWrap();
         const taskInput = createTaskInput();
 
         const today = new Date();
         const timeDiv = createTimeDiv(today);
         const dateDiv = createDateDiv(today);
-        return {header, form, radioWrap, taskInput, timeDiv, dateDiv};
-    }
 
-    function appendElements() {
         form.appendChild(radioWrap)
         form.appendChild(taskInput)
         form.appendChild(timeDiv)
         form.appendChild(dateDiv)
+
+        return form;
+    }
+
+    function appendElements() {
         main.appendChild(header)
         main.appendChild(form)
+        main.appendChild(tasks)
     }
 }
 
