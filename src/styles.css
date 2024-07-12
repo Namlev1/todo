@@ -15,6 +15,7 @@
     --cyan: #3fd4f4;
     --pink: #fd99af;
     --gray: #717082;
+    --light-gray: #dadada;
     --yellow: #fac608;
     --light-cyan: #99e6f9;
     --light-pink: #febccd;
@@ -255,8 +256,36 @@ h1{
 
 .task_time_btn_container{
     display: grid;
-    flex-basis: 200px;
-    grid-template-columns: 170px 30px;
+    flex-basis: 170px;
+    grid-template-columns: 1fr 35px;
     justify-content: start;
     align-items: center;
+}
+
+.finish_btn{
+    width: 35px;
+    border: 3px solid var(--light-gray);
+    background-color: transparent;
+    position: relative;
+}
+
+.finish_btn::before{
+    color: var(--lilac);
+    content: "✓";
+    font-size: 0.9rem;
+    position: absolute;
+    top: 0;
+    left: 6px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.finish_btn:hover,
+.finish_btn:checked {
+    border: 3px solid var(--lilac);
+}
+
+.finish_btn:hover::before,
+.finish_btn:checked::before{
+    opacity: 1;
 }

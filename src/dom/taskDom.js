@@ -21,10 +21,12 @@ export function displayTask(task){
 
     const rightDiv = createDiv('task_time_btn_container')
     const time = createP('task_time', convertTo12HourFormat(task.time));
-    const btn = createBtn('submit', 'smf', 'hit me')
+    const finishBtnWrap = createDiv('radio_wrap')
+    const finishBtn = createBtn('submit', 'finish_btn', '')
+    finishBtnWrap.appendChild(finishBtn);
 
     rightDiv.appendChild(time)
-    rightDiv.appendChild(btn)
+    rightDiv.appendChild(finishBtnWrap)
     taskForm.appendChild(radioWrap)
     taskForm.appendChild(p)
     taskForm.appendChild(rightDiv)
