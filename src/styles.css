@@ -258,4 +258,5 @@ h1{
     flex-basis: 200px;
     grid-template-columns: 170px 30px;
     justify-content: start;
+    align-items: center;
 }

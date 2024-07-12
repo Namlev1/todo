@@ -1,13 +1,11 @@
 import {createBtn, createDiv, createForm, createP, createRadioBtn} from "./domUtils";
 import {newTaskEventListener} from "../form/taskFormEventListeners";
 import {Types} from "../logic/taskTypes";
+import {convertTo12HourFormat} from "../logic/timeUtil";
 
 export function displayTask(task){
     const tasks = document.querySelector('.tasks');
-    console.log('displayTask ', task);
     const type = Types[task.type];
-    console.log('taskType ', type);
-    console.log('btnColor ', type.btnColor);
 
     const taskForm = createForm('task')
     taskForm.action = '#'
@@ -22,7 +20,7 @@ export function displayTask(task){
     p.classList.add('flex-grow')
 
     const rightDiv = createDiv('task_time_btn_container')
-    const time = createP('task_time', task.time)
+    const time = createP('task_time', convertTo12HourFormat(task.time));
     const btn = createBtn('submit', 'smf', 'hit me')
 
     rightDiv.appendChild(time)
