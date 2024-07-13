@@ -1,5 +1,5 @@
 import {createBtn, createDiv, createForm, createP, createRadioBtn} from "./domUtils";
-import {newTaskEventListener} from "../form/taskFormEventListeners";
+import {deleteTaskEventListener, newTaskEventListener} from "../events/taskEventListeners";
 import {Types} from "../logic/taskTypes";
 import {convertTo12HourFormat} from "../logic/timeUtil";
 
@@ -37,10 +37,17 @@ export function displayTask(task){
         const finishBtnWrap = createDiv('radio_wrap')
         const finishBtn = createBtn('submit', 'finish_btn', '')
         finishBtn.setAttribute('taskId', task.id)
+        finishBtn.addEventListener('click', deleteTaskEventListener)
         finishBtnWrap.appendChild(finishBtn);
 
         rightDiv.appendChild(time)
         rightDiv.appendChild(finishBtnWrap)
         return rightDiv;
     }
+}
+
+export function hideTask(taskId){
+    const finishBtn = document.querySelector(`button[taskId="${taskId}"]`)
+    const taskForm = finishBtn.parentElement.parentElement.parentElement;
+    taskForm.remove();
 }

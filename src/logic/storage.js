@@ -17,12 +17,28 @@ export function save(task) {
     localStorage.setItem("id", String(Task.id));
 }
 
+function findById(id){
+    for (const type in taskTypes) {
+        const tasks = taskTypes[type];
+        for (const task of tasks){
+            if (task.id == id)
+                return task;
+        }
+    }
+    throw new Error('Task with id ' + id + ' not found');
+}
+
+export function removeById(id){
+    const task = findById(id);
+    return remove(task);
+}
+
 export function remove(task) {
-    console.log(`removing task: ${JSON.stringify(task)})`)
+    console.log('removing task: ' + JSON.stringify(task));
     if (taskTypes[task.type]) {
-        const index = taskTypes[task.type].indexOf(arrTask => task.id === arrTask.id)
+        const index = taskTypes[task.type].findIndex(arrTask => task.id === arrTask.id)
         taskTypes[task.type].splice(index, 1);
-        localStorage.setItem('homeTasks', JSON.stringify(taskTypes[task.type]));
+        localStorage.setItem(`${task.type}Tasks`, JSON.stringify(taskTypes[task.type]));
     }
 }
 

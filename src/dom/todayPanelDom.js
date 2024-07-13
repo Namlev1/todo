@@ -11,7 +11,7 @@ import CalendarIcon from "../assets/img/calendar.svg"
 import Clock from "../assets/img/clock.svg"
 import {format, parse} from "date-fns";
 import {enUS} from "date-fns/locale";
-import {newTaskEventListener} from "../form/taskFormEventListeners";
+import {newTaskEventListener} from "../events/taskEventListeners";
 
 export default function renderTodayMainPanelDom() {
     const main = document.querySelector('#main')

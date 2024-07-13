@@ -1,8 +1,8 @@
 import {Task} from "../logic/task";
-import {save} from "../logic/storage";
-import {displayTask} from "../dom/taskDom";
+import {removeById, save} from "../logic/storage";
+import {displayTask, hideTask} from "../dom/taskDom";
 
-export function newTaskEventListener(event){
+export function newTaskEventListener(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
 
@@ -14,4 +14,11 @@ export function newTaskEventListener(event){
     const task = new Task(type, name, time, date);
     save(task);
     displayTask(task)
+}
+
+export function deleteTaskEventListener(event) {
+    event.preventDefault();
+    const taskId = event.target.getAttribute('taskId')
+    removeById(taskId)
+    hideTask(taskId)
 }
