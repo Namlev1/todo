@@ -11,25 +11,36 @@ export function displayTask(task){
     taskForm.action = '#'
     taskForm.addEventListener('submit', (event) => newTaskEventListener(event))
 
-    const radioWrap = createDiv('radio_wrap')
-    const radioBtn = createRadioBtn(type.btnColor, 'type', 'type', 'type')
-    radioBtn.disabled = true;
-    radioWrap.appendChild(radioBtn);
+    const radioWrap = createRadioTypeBtn();
 
     const p = createP('task_name', task.name)
     p.classList.add('flex-grow')
 
-    const rightDiv = createDiv('task_time_btn_container')
-    const time = createP('task_time', convertTo12HourFormat(task.time));
-    const finishBtnWrap = createDiv('radio_wrap')
-    const finishBtn = createBtn('submit', 'finish_btn', '')
-    finishBtnWrap.appendChild(finishBtn);
+    const rightDiv = createTimeAndFinishDiv();
 
-    rightDiv.appendChild(time)
-    rightDiv.appendChild(finishBtnWrap)
     taskForm.appendChild(radioWrap)
     taskForm.appendChild(p)
     taskForm.appendChild(rightDiv)
-
     tasks.appendChild(taskForm);
+
+    function createRadioTypeBtn() {
+        const radioWrap = createDiv('radio_wrap')
+        const radioBtn = createRadioBtn(type.btnColor, 'type', 'type', 'type')
+        radioBtn.disabled = true;
+        radioWrap.appendChild(radioBtn);
+        return radioWrap;
+    }
+
+    function createTimeAndFinishDiv() {
+        const rightDiv = createDiv('task_time_btn_container')
+        const time = createP('task_time', convertTo12HourFormat(task.time));
+        const finishBtnWrap = createDiv('radio_wrap')
+        const finishBtn = createBtn('submit', 'finish_btn', '')
+        finishBtn.setAttribute('taskId', task.id)
+        finishBtnWrap.appendChild(finishBtn);
+
+        rightDiv.appendChild(time)
+        rightDiv.appendChild(finishBtnWrap)
+        return rightDiv;
+    }
 }

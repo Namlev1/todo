@@ -100,6 +100,16 @@ export function createRadioBtn(className, id, name, value) {
     return radioBtn;
 }
 
+export function createCheckBox(className, id, name, value) {
+    const radioBtn = document.createElement('input');
+    radioBtn.type = 'checkbox'
+    radioBtn.classList.add(className);
+    radioBtn.id = id;
+    radioBtn.name = name;
+    radioBtn.value = value;
+    return radioBtn;
+}
+
 export function createTextInput(className, id, name, placeholder) {
     const input = document.createElement('input');
     input.type = 'text'
