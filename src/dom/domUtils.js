@@ -119,3 +119,9 @@ export function createTextInput(className, id, name, placeholder) {
     input.placeholder = placeholder;
     return input;
 }
+
+export function deleteChildren(domElement){
+    while (domElement.firstChild) {
+        domElement.firstChild.remove();
+    }
+}

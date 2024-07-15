@@ -5,7 +5,7 @@ import {
     createH1,
     createRadioBtn,
     createTextInput,
-    createTimeInput
+    createTimeInput, deleteChildren
 } from "./domUtils";
 import CalendarIcon from "../assets/img/calendar.svg"
 import Clock from "../assets/img/clock.svg"
@@ -23,6 +23,7 @@ export default function renderTodayMainPanelDom() {
     const form = createTaskForm();
     const tasks = createDiv('tasks')
 
+    deleteChildren(main)
     appendElements();
     fillInTodayTasks();
 
