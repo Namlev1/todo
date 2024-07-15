@@ -14,6 +14,7 @@ import {enUS} from "date-fns/locale";
 import {newTaskEventListener} from "../events/taskEventListeners";
 import {taskTypes} from "../logic/storage";
 import {displayTask} from "./taskDom";
+import {compareTaskDates} from "../util/timeUtil";
 
 export default function renderTodayMainPanelDom() {
     const main = document.querySelector('#main')
@@ -51,14 +52,15 @@ export default function renderTodayMainPanelDom() {
     }
 
     function fillInTodayTasks() {
+        const todayTasks = [];
         Object.keys(taskTypes).forEach(type => {
-            const storedTasks = taskTypes[type];
-            for (const task of storedTasks) {
-                if (isToday(new Date(task.date))) {
-                    displayTask(task);
-                }
-            }
+            const typeTasks = taskTypes[type];
+            const tasksForToday = typeTasks.filter(task => isToday(new Date(task.date)));
+            todayTasks.push(...tasksForToday);
         });
+        todayTasks.sort((a, b) => compareTaskDates(a, b))
+        console.log(todayTasks)
+        todayTasks.forEach(displayTask)
     }
 }
 
