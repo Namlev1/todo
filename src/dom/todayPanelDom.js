@@ -9,9 +9,11 @@ import {
 } from "./domUtils";
 import CalendarIcon from "../assets/img/calendar.svg"
 import Clock from "../assets/img/clock.svg"
-import {format, parse} from "date-fns";
+import {format, isToday, parse} from "date-fns";
 import {enUS} from "date-fns/locale";
 import {newTaskEventListener} from "../events/taskEventListeners";
+import {taskTypes} from "../logic/storage";
+import {displayTask} from "./taskDom";
 
 export default function renderTodayMainPanelDom() {
     const main = document.querySelector('#main')
@@ -21,6 +23,7 @@ export default function renderTodayMainPanelDom() {
     const tasks = createDiv('tasks')
 
     appendElements();
+    fillInTodayTasks();
 
     function createTaskForm() {
         const form = createForm('task_form')
@@ -45,6 +48,17 @@ export default function renderTodayMainPanelDom() {
         main.appendChild(header)
         main.appendChild(form)
         main.appendChild(tasks)
+    }
+
+    function fillInTodayTasks() {
+        Object.keys(taskTypes).forEach(type => {
+            const storedTasks = taskTypes[type];
+            for (const task of storedTasks) {
+                if (isToday(new Date(task.date))) {
+                    displayTask(task);
+                }
+            }
+        });
     }
 }
 

@@ -1,7 +1,7 @@
 import {createBtn, createDiv, createForm, createP, createRadioBtn} from "./domUtils";
 import {deleteTaskEventListener, newTaskEventListener} from "../events/taskEventListeners";
 import {Types} from "../logic/taskTypes";
-import {convertTo12HourFormat} from "../logic/timeUtil";
+import {convertTo12HourFormat} from "../util/timeUtil";
 
 export function displayTask(task){
     const tasks = document.querySelector('.tasks');

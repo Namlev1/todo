@@ -4,5 +4,5 @@ import renderTodayMainPanelDom from "./dom/todayPanelDom";
 import {loadStorage} from "./logic/storage";
 
 renderSidePanelDom()
-renderTodayMainPanelDom();
 loadStorage();
+renderTodayMainPanelDom();

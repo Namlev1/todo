@@ -1,10 +1,8 @@
 import {Task} from "./task";
-import {displayTask} from "../dom/taskDom";
+import {compareTaskDates} from "../util/timeUtil";
 
-const taskTypes = {
-    home: [],
-    work: [],
-    personal: []
+export const taskTypes = {
+    home: [], work: [], personal: []
 }
 
 export function save(task) {
@@ -17,18 +15,17 @@ export function save(task) {
     localStorage.setItem("id", String(Task.id));
 }
 
-function findById(id){
+function findById(id) {
     for (const type in taskTypes) {
         const tasks = taskTypes[type];
-        for (const task of tasks){
-            if (task.id == id)
-                return task;
+        for (const task of tasks) {
+            if (task.id == id) return task;
         }
     }
     throw new Error('Task with id ' + id + ' not found');
 }
 
-export function removeById(id){
+export function removeById(id) {
     const task = findById(id);
     return remove(task);
 }
@@ -46,10 +43,10 @@ export function loadStorage() {
     Object.keys(taskTypes).forEach(type => {
         const storedTasks = JSON.parse(localStorage.getItem(`${type}Tasks`));
         if (storedTasks) {
+            storedTasks.sort((a, b) => compareTaskDates(a, b))
             taskTypes[type].push(...storedTasks);
-            console.log(`${type}: ${JSON.stringify(taskTypes[type])}`);
-            storedTasks.forEach(displayTask);
         }
+
     });
     Task.id = localStorage.getItem('id') === null ? 1 : JSON.parse(localStorage.getItem('id'));
 }
