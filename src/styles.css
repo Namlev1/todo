@@ -45,7 +45,7 @@ p {
     display: inline;
 }
 
-h1{
+h1, h2 {
     font-family: "Poppins Bold", sans-serif;
     letter-spacing: 0.05rem;
 }
@@ -150,6 +150,10 @@ h1{
     color: var(--white);
 }
 
+#main > h1 {
+    margin-left: 1rem;
+}
+
 .task_form,
 .task {
     background-color: var(--white);
@@ -165,6 +169,10 @@ h1{
 .task > * {
     flex-shrink: 1;
     min-width: 0;
+}
+
+.tasks > h2 {
+    margin-left: 1rem;
 }
 
 .radio_wrap{

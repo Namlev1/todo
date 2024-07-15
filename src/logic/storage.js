@@ -9,6 +9,7 @@ export function save(task) {
     console.log(`saving task: ${JSON.stringify(task)})`)
     if (taskTypes[task.type]) {
         taskTypes[task.type].push(task)
+        taskTypes[task.type].sort(compareTaskDates)
         localStorage.setItem(`${task.type}Tasks`, JSON.stringify(taskTypes[task.type]));
     }
     Task.id++;

@@ -5,7 +5,8 @@ import {
     createH1,
     createRadioBtn,
     createTextInput,
-    createTimeInput, deleteChildren
+    createTimeInput,
+    deleteChildren
 } from "./domUtils";
 import CalendarIcon from "../assets/img/calendar.svg"
 import Clock from "../assets/img/clock.svg"
@@ -86,6 +87,7 @@ function createTaskInput() {
     const taskInput = createTextInput('flex-grow', 'task_name', 'task_name', 'What is your next task?')
     taskInput.spellcheck = false;
     taskInput.autocomplete = 'off'
+    taskInput.required = true;
     return taskInput;
 }
 
